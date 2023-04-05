@@ -1,0 +1,144 @@
+﻿<Window x:Class="Marathon.ListOfCharities"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Marathon"
+        mc:Ignorable="d"
+        Title="Marathon Skills 2022 - List of charities"  Width="1280" Height="720" MinWidth="1280" MinHeight="720" WindowStartupLocation="CenterScreen" Icon="Resources/Icon.png" Loaded="Window_Loaded" >
+
+    <Window.Resources>
+
+        <Style TargetType="Button" x:Key="DefaultButton">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="Background" Value="#ebebeb"/>
+            <Setter Property="Foreground" Value="#505050"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="Caption">
+            <Setter Property="FontFamily" Value="Open Sans Semibold"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="DefaultLabel">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.9*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#505050">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.8*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Style="{StaticResource Caption}" FontSize="32" Content="MARATHON SKILLS 2022"  />
+
+            <Button Grid.Column="0" Margin="10,10,90,10" Style="{StaticResource DefaultButton}" FontSize="32" Content="Назад" x:Name="Back" Click="Back_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.6*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Style="{StaticResource DefaultLabel}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="32" Foreground="#505050" Content="Cписок благотворительных организаций"/>
+            <Label Grid.Row="1" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050">
+                <TextBlock TextAlignment="Center" TextWrapping="Wrap">
+                    Это - список всех благотворительных учреждений, которые поддерживаются в Marathon Skills 2022. Спасибо за помощь, спонсируя бегунов, вы их поддерживаете
+                </TextBlock>
+            </Label>
+
+        </Grid>
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.8*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.15*"/>
+                <RowDefinition Height="0.15*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Column="0" Grid.Row="2" Source="Resources/Logo0.png" Stretch="Uniform" Name="Charity1" />
+            <Image Grid.Column="0" Grid.Row="3" Source="Resources/Logo1.png" Stretch="Uniform" Name="Charity2" />
+            <Image Grid.Column="0" Grid.Row="4" Source="Resources/Logo2.png" Stretch="Uniform" Name="Charity3" />
+
+            <Grid Grid.Row="2" Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Style="{StaticResource DefaultLabel}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="32" Foreground="#505050" Content="Фонд кошек"/>
+                <Label Grid.Row="1" Style="{StaticResource DefaultLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" Foreground="#505050" Content="Создана в Рио-де-Жанейро в 1988 году тремя клубами любителей кошек."/>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Style="{StaticResource DefaultLabel}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="32" Foreground="#505050" Content="Фонд собак"/>
+                <Label Grid.Row="1" Style="{StaticResource DefaultLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" Foreground="#505050" Content="Некоммерческая организация, которая помогает бездомным собакам."/>
+
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Style="{StaticResource DefaultLabel}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="32" Foreground="#505050" Content="Фонд инвалидов"/>
+                <Label Grid.Row="1" Style="{StaticResource DefaultLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" Foreground="#505050">
+                    <TextBlock TextAlignment="Center" TextWrapping="Wrap">
+                        Инвалиды — лица с ограниченными возможностями, не способные работать и зарабатывать на жизнь, нуждающиеся в разнообразной помощи.
+                    </TextBlock>
+                </Label>
+
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="2" Background="#505050">
+
+            <Label Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#FFFFFF" x:Name="BottomLabel"/>
+
+        </Grid>
+
+    </Grid>
+    
+</Window>

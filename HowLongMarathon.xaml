@@ -1,0 +1,182 @@
+﻿<Window x:Class="Marathon.HowLongMarathon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Marathon"
+        mc:Ignorable="d"
+        Title="Marathon Skills 2022 - How long is a marathon" Width="1280" Height="720" MinWidth="1280" MinHeight="720" WindowStartupLocation="CenterScreen" Icon="Resources/Icon.png" Loaded="Window_Loaded">
+    <Window.Resources>
+
+        <Style TargetType="Button" x:Key="DefaultButton">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="Background" Value="#ebebeb"/>
+            <Setter Property="Foreground" Value="#505050"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="DefaultTextBlock">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="Foreground" Value="#CCCCCC"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        
+        <Style TargetType="Label" x:Key="Caption">
+            <Setter Property="FontFamily" Value="Open Sans Semibold"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="DefaultLabel">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#505050">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.8*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Style="{StaticResource Caption}" FontSize="32" Content="MARATHON SKILLS 2022"/>
+
+            <Button Grid.Column="0" Margin="10,10,90,10" Style="{StaticResource DefaultButton}" FontSize="32" Content="Назад" x:Name="Back" Click="Back_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </Grid>
+                
+        
+        
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.15*"/>
+                <RowDefinition Height="0.85*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="Black" Content="На сколько долгий марафон?"/>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.25*"/>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.35*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050" Content="F1-машина" Name="NameTabItem"/>
+                    <Image Grid.Row="1" Stretch="Uniform" x:Name="SelectedImage" Source="Resources/f1-car.jpg"/>
+                    <TextBlock Grid.Row="2" Margin="8" Style="{StaticResource DefaultTextBlock}" Name="InfoAboutTabItem" Text="Едет со скоростью 150 км/ч. Проидет марафон за 7 минут и 20 секунд." FontSize="28" Foreground="#505050" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <TabControl x:Name="TabControl1" Margin="8">
+                        <TabItem x:Name="SpeedTab">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="20" Margin="3">Скорость</TextBlock>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <TabItem.Content>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Stretch="Uniform" x:Name="SpeedImage1" Source="Resources/f1-car.jpg" MouseLeftButtonDown="SpeedImage1_MouseLeftButtonDown" />
+                                    <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050" Content="F1-машина"/>
+                                    <Image Grid.Row="1" Stretch="Uniform" x:Name="SpeedImage2" Source="Resources/Pinguin.png" MouseLeftButtonDown="SpeedImage2_MouseLeftButtonDown"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050" Content="Пингвин"/>
+                                    <Image Grid.Row="2" Stretch="Uniform" x:Name="SpeedImage3" Source="Resources/Capybara.png" MouseLeftButtonDown="SpeedImage3_MouseLeftButtonDown"/>
+                                    <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050" Content="Капибара"/>
+                                    <Image Grid.Row="3" Stretch="Uniform" x:Name="SpeedImage4" Source="Resources/worm.jpg" MouseLeftButtonDown="SpeedImage4_MouseLeftButtonDown"/>
+                                    <Label Grid.Row="3" Grid.Column="1" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050" Content="Червяк"/>
+                                    <Image Grid.Row="4" Stretch="Uniform" x:Name="SpeedImage5" Source="Resources/jaguar.jpg" MouseLeftButtonDown="SpeedImage5_MouseLeftButtonDown"/>
+                                    <Label Grid.Row="4" Grid.Column="1" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050" Content="Ягуар"/>
+                                </Grid>
+                            </TabItem.Content>
+                        </TabItem>
+                        <TabItem x:Name="DistanceTab">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="20" Margin="3">Дистанция</TextBlock>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <TabItem.Content>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Stretch="Uniform" x:Name="DistanceImage1" Source="Resources/airbus.jpg" MouseLeftButtonDown="DistanceImage1_MouseLeftButtonDown"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050" Content="Airbus A380"/>
+                                    <Image Grid.Row="1" Stretch="Uniform" x:Name="DistanceImage2" Source="Resources/shlep.jpg" MouseLeftButtonDown="DistanceImage2_MouseLeftButtonDown"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050" Content="Шлепки"/>
+                                    <Image Grid.Row="2" Stretch="Uniform" x:Name="DistanceImage3" Source="Resources/football-field.jpg" MouseLeftButtonDown="DistanceImage3_MouseLeftButtonDown"/>
+                                    <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050" Content="Футбольное поле"/>
+                                    <Image Grid.Row="3" Stretch="Uniform" x:Name="DistanceImage4" Source="Resources/kremlin.jpg" MouseLeftButtonDown="DistanceImage4_MouseLeftButtonDown"/>
+                                    <Label Grid.Row="3" Grid.Column="1" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050" Content="Кремль"/>
+                                    <Image Grid.Row="4" Stretch="Uniform" x:Name="DistanceImage5" Source="Resources/bus.jpg" MouseLeftButtonDown="DistanceImage5_MouseLeftButtonDown"/>
+                                    <Label Grid.Row="4" Grid.Column="1" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050" Content="Автобус"/>
+                                </Grid>
+                            </TabItem.Content>
+                        </TabItem>
+                     </TabControl>
+                </Grid>
+               
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="2" Background="#505050">
+
+            <Label Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#FFFFFF" x:Name="BottomLabel"/>
+
+        </Grid>
+
+    </Grid>
+    
+</Window>

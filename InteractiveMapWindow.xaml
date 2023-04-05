@@ -1,0 +1,157 @@
+﻿<Window x:Class="Marathon.InteractiveMapWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Marathon"
+        mc:Ignorable="d"
+        Title="Marathon Skills 2022 - Интерактивная карта" Width="1280" Height="720" MinWidth="1280" MinHeight="720" WindowStartupLocation="CenterScreen" Icon="Resources/Icon.png" Loaded="Window_Loaded">
+    <Window.Resources>
+
+        <Style TargetType="Button" x:Key="DefaultButton">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="Background" Value="#ebebeb"/>
+            <Setter Property="Foreground" Value="#505050"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="Caption">
+            <Setter Property="FontFamily" Value="Open Sans Semibold"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="DefaultLabel">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+    </Window.Resources>
+
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.9*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#505050">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.8*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Style="{StaticResource Caption}" FontSize="32" Content="Интерактивная карта Marathon Skills 2022"/>
+
+            <Button Grid.Column="0"  Margin="10,10,90,10" Style="{StaticResource DefaultButton}" FontSize="32" Content="Назад" x:Name="Back" Click="Back_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </Grid>
+
+
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image x:Name="MainImage" Source="Resources/tracemarathon.PNG"/>
+
+            <Button Margin="218,29,353,528" Name="StartFirst" Click="StartFirst_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="Resources/map-icon-start.PNG"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Margin="44,251,527,306" Name="StartSecond" Click="StartSecond_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="Resources/map-icon-start.PNG"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Margin="378,553,193,4" Name="StartThird" Click="StartThird_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="Resources/map-icon-start.PNG"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Margin="349,9,227,553" x:Name="First" Click="First_Click" Opacity="0"/>
+            <Button Margin="422,193,154,368" x:Name="Second" Click="Second_Click" Opacity="0"/>
+            <Button Margin="407,320,170,241" x:Name="Third" Click="Third_Click" Opacity="0"/>
+            <Button Margin="566,463,10,97" x:Name="Fourth" Click="Fourth_Click" Opacity="0"/>
+            <Button Margin="315,554,263,6" x:Name="Fifth" Click="Fifth_Click" Opacity="0"/>
+            <Button Margin="111,489,465,73" x:Name="Sixth" Click="Sixth_Click" Opacity="0"/>
+            <Button Margin="50,377,526,185" x:Name="Seventh" Click="Seventh_Click" Opacity="0"/>
+            <Button Margin="34,187,542,375" x:Name="Eigth" Click="Eigth_Click" Opacity="0"/>
+            <Rectangle Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="498" Margin="97,74,0,0" Stroke="Black" VerticalAlignment="Top" Width="454" Name="InfoBox"/>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Content="Landmark name" FontSize="32" HorizontalAlignment="Center" Name="NameLandmark"/>
+                    <Label Grid.Row="1" Content="Services provided:" FontSize="32" HorizontalAlignment="Center" Name="Services"/>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="0.2*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.15*"/>
+                        <ColumnDefinition Width="0.15*"/>
+                        <ColumnDefinition Width="0.7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="Image" Source="Resources/map-icon-drinks.png" Grid.Column="1"/>
+                    <Image x:Name="Image1" Source="Resources/map-icon-energy-bars.png" Grid.Row="1" Grid.Column="1"/>
+                    <Image x:Name="Image2" Source="Resources/map-icon-toilets.png" Grid.Row="2" Grid.Column="1"/>
+                    <Image x:Name="Image3" Source="Resources/map-icon-information.png" Grid.Row="3" Grid.Column="1"/>
+                    <Image x:Name="Image4" Source="Resources/map-icon-medical.png" Grid.Row="4" Grid.Column="1"/>
+                    <Label Grid.Column="2" Content="Drinks" VerticalAlignment="Center" Name="Label1"/>
+                    <Label Grid.Column="2" Grid.Row="1" Content="Energy bars" VerticalAlignment="Center" Name="Label2"/>
+                    <Label Grid.Column="2" Grid.Row="2" Content="Toilets" VerticalAlignment="Center" Name="Label3"/>
+                    <Label Grid.Column="2" Grid.Row="3" Content="Information" VerticalAlignment="Center" Name="Label4"/>
+                    <Label Grid.Column="2" Grid.Row="4" Content="Medical" VerticalAlignment="Center" Name="Label5"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.8*"/>
+                        <RowDefinition Height="0.1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="1" Content="Checkpoint" FontSize="32" HorizontalAlignment="Center" Name="CheckpointLabel"/>
+                    <Button x:Name="CloseButton" Margin="495,-3,85,56" Grid.RowSpan="2" Background="White" Click="CloseButton_Click">
+                        <Image Source="Resources/red cross.PNG"/>
+                    </Button>
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

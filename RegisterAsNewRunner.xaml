@@ -1,0 +1,223 @@
+﻿<Window x:Class="Marathon.RegisterAsNewRunner"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Marathon"
+        mc:Ignorable="d"
+         Title="Marathon Skills 2022 - Register as runner" Width="1280" Height="720" MinWidth="1280" MinHeight="720" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="Resources/Icon.png">
+    <Window.Resources>
+
+        <Style TargetType="Button" x:Key="DefaultButton">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="Background" Value="#ebebeb"/>
+            <Setter Property="Foreground" Value="#505050"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="Caption">
+            <Setter Property="FontFamily" Value="Open Sans Semibold"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="DefaultLabel">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="DefaultTextBlock">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="Foreground" Value="#505050"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="8"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="FontFamily" Value="Open Sans Light"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="Foreground" Value="#505050"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#505050">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.8*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Margin="10,10,90,10" Style="{StaticResource DefaultButton}" FontSize="32" Content="Назад" x:Name="Back" Click="Back_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Label Grid.Column="1" Style="{StaticResource Caption}" FontSize="32" Content="MARATHON SKILLS 2022"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#505050" Content="Регистрация бегуна"/>
+            <TextBlock Grid.Row="1" Style="{StaticResource DefaultTextBlock}" FontSize="24" Foreground="#505050">
+                Пожалуйста, заполните всю информацию, чтобы зарегистрироваться в качестве бегуна
+            </TextBlock>
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource DefaultLabel}" Foreground="#505050" HorizontalAlignment="Right" FontSize="24" Content="Email:"/>
+                <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource DefaultLabel}" Foreground="#505050" HorizontalAlignment="Right" FontSize="24" Content="Пароль:"/>
+                <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource DefaultLabel}" Foreground="#505050" HorizontalAlignment="Right" FontSize="24" Content="Повторите пароль:"/>
+                <Label Grid.Column="0" Grid.Row="3" Style="{StaticResource DefaultLabel}" Foreground="#505050" HorizontalAlignment="Right" FontSize="24" Content="Имя:"/>
+                <Label Grid.Column="0" Grid.Row="4" Style="{StaticResource DefaultLabel}" Foreground="#505050" HorizontalAlignment="Right" FontSize="24" Content="Фамилия:"/>
+                <Label Grid.Column="0" Grid.Row="5" Style="{StaticResource DefaultLabel}" Foreground="#505050" HorizontalAlignment="Right" FontSize="24" Content="Пол:"/>
+
+                <TextBox Grid.Column="1" Grid.Row="0" x:Name="Email"/>
+                <TextBox Grid.Column="1" Grid.Row="1" x:Name="Password"/>
+                <TextBox Grid.Column="1" Grid.Row="2" x:Name="EqualPassword"/>
+                <TextBox Grid.Column="1" Grid.Row="3" x:Name="Name"/>
+                <TextBox Grid.Column="1" Grid.Row="4" x:Name="SecondName"/>
+                <ComboBox Grid.Column="1" Grid.Row="5" x:Name="Sex">
+                    <Label Style="{StaticResource DefaultLabel}" Content="Мужской"/>
+                    <Label Style="{StaticResource DefaultLabel}" Content="Женский"/>
+                </ComboBox>
+                <Button Grid.Column="1" Grid.Row="7" Style="{StaticResource DefaultButton}" HorizontalAlignment="Center" FontSize="32" Content="Регистрация" x:Name="Registration" Click="Registration_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="8"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="0.4*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource DefaultLabel}" Foreground="#505050" HorizontalAlignment="Center" FontSize="24" Content="Файл фото:"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" x:Name="FileNameBox"/>
+                    <Label Grid.Column="0" Grid.Row="4" Style="{StaticResource DefaultLabel}" Foreground="#505050" HorizontalAlignment="Right" FontSize="24" Content="Страна:"/>
+                    <Label Grid.Column="0" Grid.Row="5" Style="{StaticResource DefaultLabel}" Foreground="#505050" HorizontalAlignment="Right" FontSize="24" Content="Дата рождения:"/>
+                    <Button Grid.Row="7" Style="{StaticResource DefaultButton}" HorizontalAlignment="Center" FontSize="32" Content="Отмена" x:Name="Cancel" Click="Cancel_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="8"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                </Grid>
+
+                <Grid Grid.Column="1">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.25*"/>
+                        <RowDefinition Height="0.125*"/>
+                        <RowDefinition Height="0.125*"/>
+                        <RowDefinition Height="0.125*"/>
+                        <RowDefinition Height="0.375*"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Row="0" Stretch="Uniform" x:Name="SelectedImage"/>
+                    <Button Grid.Row="2" Style="{StaticResource DefaultButton}" HorizontalAlignment="Center" FontSize="32" Content="Просмотр" x:Name="ViewImage" Click="ViewImage_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="8"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <ComboBox Grid.Row="3" x:Name="Country">
+                        <Label Style="{StaticResource DefaultLabel}" Content="Россия"/>
+                        <Label Style="{StaticResource DefaultLabel}" Content="Италия"/>
+                        <Label Style="{StaticResource DefaultLabel}" Content="Украйна"/>
+                    </ComboBox>
+                    <Calendar Grid.Row="4" x:Name="Calendar"/>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="3" Background="#505050">
+
+            <Label Style="{StaticResource DefaultLabel}" FontSize="32" Foreground="#FFFFFF" x:Name="BottomLabel"/>
+
+        </Grid>
+
+    </Grid>
+    
+</Window>
